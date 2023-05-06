@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import BookShow from './BookShow';
+import { BooksContext } from '../context/books';
 
 const Booklist = ({ books, onDelete, onEdit }) => {
 	const renderedBooks = books.map(book => {
