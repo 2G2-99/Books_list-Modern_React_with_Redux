@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { createContext, useState } from 'react';
 
 export const BooksContext = createContext();
@@ -42,5 +43,15 @@ export function Provider({ children }) {
 		setBooks(updatedBooks);
 	};
 
-	return <BooksContext.Provider value={{}}>{children}</BooksContext.Provider>;
+	const booksUtils = {
+		books,
+		createBook,
+		deleteBookById,
+		editBookById,
+		fetchBooks,
+	};
+
+	return (
+		<BooksContext.Provider value={booksUtils}>{children}</BooksContext.Provider>
+	);
 }

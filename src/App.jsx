@@ -1,22 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useContext } from 'react';
 
 import BookCreate from './components/BookCreate';
 import BookList from './components/BookList';
-import axios from 'axios';
+import { BooksContext } from './context/books';
 
 function App() {
+	const { fetchBooks } = useContext(BooksContext);
+
 	useEffect(() => {
 		fetchBooks();
 	}, []);
 
 	return (
 		<>
-			<BookList
-				books={books}
-				onDelete={deleteBookById}
-				onEdit={editBookById}
-			/>
-			<BookCreate onCreate={createBook} />
+			<BookList />
+			<BookCreate />
 		</>
 	);
 }
