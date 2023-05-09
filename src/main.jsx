@@ -5,9 +5,7 @@ import App from './App';
 import { Provider } from './context/books';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<React.StrictMode>
-		<Provider>
-			<App />
-		</Provider>
-	</React.StrictMode>
+	<Provider>
+		<App />
+	</Provider>
 );

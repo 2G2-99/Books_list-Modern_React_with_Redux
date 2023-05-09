@@ -1,21 +1,22 @@
-import { useEffect, useContext } from 'react';
+import { useEffect } from 'react';
 
 import BookCreate from './components/BookCreate';
 import BookList from './components/BookList';
-import { BooksContext } from './context/books';
+import useBooksContext from './hooks/useBooksContext';
 
 function App() {
-	const { fetchBooks } = useContext(BooksContext);
+	const { fetchBooks } = useBooksContext();
 
 	useEffect(() => {
 		fetchBooks();
-	});
+	}, []);
 
 	return (
-		<>
+		<div className="app">
+			<h1>Reading List</h1>
 			<BookList />
 			<BookCreate />
-		</>
+		</div>
 	);
 }
 
